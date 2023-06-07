@@ -62,7 +62,7 @@ h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   button {
     all: unset
   }
-  @font-face {
+  /* @font-face {
         font-family: 'AgroBold';
         font-style: normal;
         src: url('/fonts/SBAgroB.ttf') format('truetype');
@@ -76,7 +76,7 @@ h1, h2, h3, h4, h5, h6, p, blockquote, pre,
         font-family: 'AgroMedium';
         font-style: normal;
         src: url('/fonts/SBAgroM.ttf') format('truetype');
-  }
+  } */
   
   `;
 

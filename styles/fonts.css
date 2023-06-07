@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "AgroBold";
+  font-style: normal;
+  src: url("/fonts/SBAgroB.ttf") format("truetype");
+}
+@font-face {
+  font-family: "AgroLight";
+  font-style: normal;
+  src: url("/fonts/SBAgroL.ttf") format("truetype");
+}
+@font-face {
+  font-family: "AgroMedium";
+  font-style: normal;
+  src: url("/fonts/SBAgroM.ttf") format("truetype");
+}

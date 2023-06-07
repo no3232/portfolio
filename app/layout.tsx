@@ -2,9 +2,14 @@
 
 import MainFooter from "@/components/main/MainFooter";
 import MainHeader from "@/components/main/MainHeader";
+import ResumeModal from "@/components/main/ResumeModal";
+import Recoil from "@/lib/Recoil";
 import StyledComponentsRegistry from "@/lib/styled-components-registry";
 import Theme from "@/styles/theme";
 import { ThemeProvider } from "styled-components";
+
+import '../styles/fonts.css'
+
 
 export default function RootLayout({
   children,
@@ -16,9 +21,12 @@ export default function RootLayout({
       <body>
         <StyledComponentsRegistry>
           <ThemeProvider theme={Theme}>
-            <MainHeader />
-            {children}
-            <MainFooter />
+            <Recoil>
+              <MainHeader />
+              {children}
+              <MainFooter />
+              <ResumeModal />
+            </Recoil>
           </ThemeProvider>
         </StyledComponentsRegistry>
       </body>
