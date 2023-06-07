@@ -11,8 +11,8 @@ interface pjtInfo {
 }
 
 const PJTList: pjtInfo[] = [
-  { pjtName: "포트폴리오", pjtDate: "2023/06", pjtLink: "/example" },
-  { pjtName: "디텍토", pjtDate: "2023/05", pjtLink: "/example" },
+  { pjtName: "포트폴리오", pjtDate: "2023/06", pjtLink: "/portfolio" },
+  { pjtName: "디텍토", pjtDate: "2023/05", pjtLink: "/detecto" },
   { pjtName: "여가 어때", pjtDate: "2023/04", pjtLink: "/example" },
   { pjtName: "마이풋 트립", pjtDate: "2023/03", pjtLink: "/example" },
   { pjtName: "SSEKER", pjtDate: "2023/01", pjtLink: "/example" },

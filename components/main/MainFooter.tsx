@@ -1,26 +1,37 @@
+import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 import { keyframes, styled } from "styled-components";
+import { useRecoilState } from "recoil";
+import { aboutShow } from "@/store/layout";
 
 function MainFooter() {
+  const router = useRouter();
+  const pathName = usePathname();
+  const [aboutState, setAboutState] = useRecoilState(aboutShow);
+
+  const ResumeHandler = () => {
+    setAboutState((prev) => !prev);
+  };
+
   return (
-    <MainFooterDiv>
+    <MainFooterDiv
+      className={`${pathName === "/" && "main"} ${aboutState && "disappear"}`}
+    >
       <ul>
         <li>
-          <button>Resume</button>
+          <button onClick={ResumeHandler}>01 About Me!</button>
         </li>
-      </ul>
-      <ul>
         <li>
           <button>
             <a href='mailto:tkdwns1324@gmail.com'>
-              Email: tkdwns1324@gmail.com
+              02 Email tkdwns1324@gmail.com
             </a>
           </button>
         </li>
         <li>
           <button>
             <a href='https://github.com/no3232' target='_blank'>
-              GitHub
+              03 GitHub
             </a>
           </button>
         </li>
@@ -30,7 +41,7 @@ function MainFooter() {
               href='https://www.notion.so/no3232/Portfolio-d4a7e119678440e4856e0d44dacae8bb?pvs=4'
               target='_blank'
             >
-              NotionPortfolio
+              04 NotionPortfolio
             </a>
           </button>
         </li>
@@ -58,12 +69,23 @@ const MainFooterDiv = styled.footer`
   bottom: 2rem;
   left: 3rem;
 
-  
   display: flex;
   flex-direction: column;
-  
+
   z-index: 2;
-  
+
+  &.disappear {
+    transition: 0.2s;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &:not(.main) {
+    li {
+      animation: ${FooterStart} 0.5s forwards;
+    }
+  }
+
   button {
     width: 100%;
     font-size: 1.5rem;

@@ -1,17 +1,19 @@
+import { aboutShow } from '@/store/layout';
 import { useRouter, usePathname } from "next/navigation";
 import React, { useEffect } from "react";
+import { useRecoilValue } from 'recoil';
 import { keyframes, styled } from "styled-components";
 
 function MainHeader() {
-  const router = useRouter();
   const pathName = usePathname();
+  const aboutShowState = useRecoilValue(aboutShow);
 
   useEffect(() => {
     console.log(pathName);
   }, [pathName]);
 
   return (
-    <MainHeaderDiv className={pathName === "/" ? "main" : ""}>
+    <MainHeaderDiv className={`${pathName !== "/" || aboutShowState ? "toTop" : "toBottom"}`}>
       <a href=''>
         <span className='slideup'>
           <h2>프론트엔드 개발자</h2>
@@ -47,19 +49,20 @@ const WordStart = keyframes`
 
 const MainHeaderDiv = styled.header`
   position: fixed;
-  bottom: calc(5vh);
+  top: 2rem;
   left: 3rem;
-  transform: translate(0, -50%);
-
-  transition: 0.5s all;
-  &:not(.main) {
-    transform: translate3d(0, calc(-87.5vh + 12rem), 0);
-
+  transform: translate3d(0, calc(100vh - 25rem), 0);
+  
+  transition: 0.5s all cubic-bezier(.23,-0.21,.01,1);
+  &:not(.toBottom) {
+    transform: translate3d(0, 0, 0);
     h1, h2 {
       animation: ${WordStart} 0.3s forwards;
     }
 
     p {
+      transition: 0.2s;
+      opacity: 0;
       visibility: hidden;
     }
   }
