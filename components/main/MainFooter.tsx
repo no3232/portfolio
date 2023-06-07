@@ -5,10 +5,35 @@ function MainFooter() {
   return (
     <MainFooterDiv>
       <ul>
-        <li><button>Resume</button></li>
-        <li><button>Email</button></li>
-        <li><button>GitHub</button></li>
-        <li><button>NotionPortfolio</button></li>
+        <li>
+          <button>Resume</button>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <button>
+            <a href='mailto:tkdwns1324@gmail.com'>
+              Email: tkdwns1324@gmail.com
+            </a>
+          </button>
+        </li>
+        <li>
+          <button>
+            <a href='https://github.com/no3232' target='_blank'>
+              GitHub
+            </a>
+          </button>
+        </li>
+        <li>
+          <button>
+            <a
+              href='https://www.notion.so/no3232/Portfolio-d4a7e119678440e4856e0d44dacae8bb?pvs=4'
+              target='_blank'
+            >
+              NotionPortfolio
+            </a>
+          </button>
+        </li>
       </ul>
     </MainFooterDiv>
   );
@@ -26,21 +51,25 @@ const FooterStart = keyframes`
     opacity: 1;
     transform: translateY(0);
   }
-`
+`;
 
 const MainFooterDiv = styled.footer`
   position: fixed;
   bottom: 2rem;
-  left: 1rem;
+  left: 3rem;
 
+  
   display: flex;
   flex-direction: column;
-
+  
   z-index: 2;
   
   button {
+    width: 100%;
     font-size: 1.5rem;
-    transition: 0.1s ease;
+    transition: 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    transform-origin: left;
 
     &:hover {
       scale: 0.9;

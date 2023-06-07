@@ -47,13 +47,13 @@ const WordStart = keyframes`
 
 const MainHeaderDiv = styled.header`
   position: fixed;
-  bottom: 2rem;
-  left: 1rem;
+  bottom: calc(5vh);
+  left: 3rem;
   transform: translate(0, -50%);
 
   transition: 0.5s all;
   &:not(.main) {
-    transform: translate3d(0, calc(-70vh), 0);
+    transform: translate3d(0, calc(-87.5vh + 12rem), 0);
 
     h1, h2 {
       animation: ${WordStart} 0.3s forwards;
