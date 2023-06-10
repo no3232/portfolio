@@ -88,13 +88,15 @@ const MainFooterDiv = styled.footer`
 
   button {
     width: 100%;
-    font-size: 1.5rem;
+
+    font-family: AgroLight;
+    font-size: 1.2rem;
     transition: 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     transform-origin: left;
 
     &:hover {
-      scale: 0.9;
+      scale: 0.95;
     }
 
     cursor: pointer;

@@ -13,11 +13,11 @@ interface pjtInfo {
 const PJTList: pjtInfo[] = [
   { pjtName: "포트폴리오", pjtDate: "2023/06", pjtLink: "/portfolio" },
   { pjtName: "디텍토", pjtDate: "2023/05", pjtLink: "/detecto" },
-  { pjtName: "여가 어때", pjtDate: "2023/04", pjtLink: "/example" },
-  { pjtName: "마이풋 트립", pjtDate: "2023/03", pjtLink: "/example" },
-  { pjtName: "SSEKER", pjtDate: "2023/01", pjtLink: "/example" },
-  { pjtName: "버닝타임", pjtDate: "2022/11", pjtLink: "/example" },
-  { pjtName: "LLATROF", pjtDate: "2022/11", pjtLink: "/example" },
+  { pjtName: "여가 어때", pjtDate: "2023/04", pjtLink: "/howplay" },
+  { pjtName: "마이풋 트립", pjtDate: "2023/03", pjtLink: "/myfoottrip" },
+  { pjtName: "SSEKER", pjtDate: "2023/01", pjtLink: "/portfolio" },
+  { pjtName: "버닝타임", pjtDate: "2022/11", pjtLink: "/burningtime" },
+  { pjtName: "LLATROF", pjtDate: "2022/11", pjtLink: "/portfolio" },
 ];
 
 const ProjectListItem = ({
@@ -39,7 +39,7 @@ const ProjectListItem = ({
     setSelectedItem(true);
     setTimeout(() => {
       router.push(pjtInfo.pjtLink);
-    }, 2000);
+    }, 1500);
   };
 
   return (
@@ -50,7 +50,7 @@ const ProjectListItem = ({
       className={selected ? "selected" : ""}
     >
       <div className={selectedItem ? "selectedpjt" : ""}>
-        <a>
+        <a href={pjtInfo.pjtLink} onClick={e => e.preventDefault()}>
           {pjtInfo.pjtName.split(" ").map((text, idx) => (
             <Fragment key={idx + text}>
               {text}
@@ -154,6 +154,8 @@ const ListSelect = keyframes`
 `;
 
 const ProjectListli = styled.li<{ nth: number; beforecontent: string }>`
+  line-height: 1;
+
   transform-style: preserve-3d;
 
   cursor: pointer;
@@ -238,7 +240,7 @@ const ProjectListli = styled.li<{ nth: number; beforecontent: string }>`
       font-size: 1rem;
       content: "${(props) => props.beforecontent}";
       position: absolute;
-      left: -6rem;
+      left: -7rem;
       top: 0;
       -webkit-text-stroke: 0px black;
     }

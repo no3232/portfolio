@@ -31,7 +31,7 @@ h1, h2, h3, h4, h5, h6, p, blockquote, pre,
     display: block;
   }
   body {
-    line-height: 1;
+    line-height: normal;
   }
   ol, ul {
     list-style: none;
@@ -47,6 +47,21 @@ h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   table {
     border-collapse: collapse;
     border-spacing: 0;
+  }
+
+  h1 {
+    font-family: AgroBold, sans-serif;
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-family: AgroBold, sans-serif;
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-family: AgroMedium, sans-serif;
+    font-size: 1.5rem;
   }
 
   a {

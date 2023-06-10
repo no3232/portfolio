@@ -14,7 +14,7 @@ function MainHeader() {
 
   return (
     <MainHeaderDiv className={`${pathName !== "/" || aboutShowState ? "toTop" : "toBottom"}`}>
-      <a href=''>
+      <a href='/'>
         <span className='slideup'>
           <h2>프론트엔드 개발자</h2>
         </span>
@@ -29,7 +29,7 @@ function MainHeader() {
         <p>사용자의 새로운 경험에 관심이 많습니다.</p>
       </span>
       <span className='slideup'>
-        <p>????를 실천하려고 노력합니다.</p>
+        <p>항상 성장하기 위해 노력합니다.</p>
       </span>
     </MainHeaderDiv>
   );
@@ -51,7 +51,7 @@ const MainHeaderDiv = styled.header`
   position: fixed;
   top: 2rem;
   left: 3rem;
-  transform: translate3d(0, calc(100vh - 25rem), 0);
+  transform: translate3d(0, calc(100vh - 26rem), 0);
   
   transition: 0.5s all cubic-bezier(.23,-0.21,.01,1);
   &:not(.toBottom) {
