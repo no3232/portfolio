@@ -1,13 +1,13 @@
 import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 import { keyframes, styled } from "styled-components";
-import { useRecoilState } from "recoil";
-import { aboutShow } from "@/store/layout";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { aboutShow, scrollend } from "@/store/layout";
 
 function MainFooter() {
-  const router = useRouter();
   const pathName = usePathname();
   const [aboutState, setAboutState] = useRecoilState(aboutShow);
+  const isScrollEnd = useRecoilValue(scrollend);
 
   const ResumeHandler = () => {
     setAboutState((prev) => !prev);
@@ -15,7 +15,7 @@ function MainFooter() {
 
   return (
     <MainFooterDiv
-      className={`${pathName === "/" && "main"} ${aboutState && "disappear"}`}
+      className={`${pathName === "/" && "main"} ${aboutState && "disappear"} ${isScrollEnd ? "" : "disappear"}`}
     >
       <ul>
         <li>

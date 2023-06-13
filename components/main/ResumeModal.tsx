@@ -168,7 +168,7 @@ const ModalSection = styled.section<ModalSectionProps>`
 
     z-index: 2;
 
-    transition: all 0.2s;
+    transition: all 0.7s;
 
     transform: ${(props) =>
       props.modalshow === "true"
@@ -245,7 +245,7 @@ const ModalSection = styled.section<ModalSectionProps>`
 
     cursor: default;
 
-    transition: all 0.3s;
+    transition: all 0.7s;
 
     transform: ${(props) =>
       props.modalshow === "true"
@@ -271,7 +271,7 @@ const ModalSection = styled.section<ModalSectionProps>`
 
     z-index: 2;
 
-    transition: 0.3s all;
+    transition: 0.7s all;
     transform: ${(props) =>
       props.modalshow === "true"
         ? "translate3d(0, 0, 0)"

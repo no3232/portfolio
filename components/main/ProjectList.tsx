@@ -11,13 +11,13 @@ interface pjtInfo {
 }
 
 const PJTList: pjtInfo[] = [
-  { pjtName: "포트폴리오", pjtDate: "2023/06", pjtLink: "/portfolio" },
-  { pjtName: "디텍토", pjtDate: "2023/05", pjtLink: "/detecto" },
-  { pjtName: "여가 어때", pjtDate: "2023/04", pjtLink: "/howplay" },
-  { pjtName: "마이풋 트립", pjtDate: "2023/03", pjtLink: "/myfoottrip" },
-  { pjtName: "SSEKER", pjtDate: "2023/01", pjtLink: "/portfolio" },
-  { pjtName: "버닝타임", pjtDate: "2022/11", pjtLink: "/burningtime" },
-  { pjtName: "LLATROF", pjtDate: "2022/11", pjtLink: "/portfolio" },
+  { pjtName: "포트폴리오", pjtDate: "2023/06", pjtLink: "/project/portfolio" },
+  { pjtName: "디텍토", pjtDate: "2023/05", pjtLink: "/project/detecto" },
+  { pjtName: "여가 어때", pjtDate: "2023/04", pjtLink: "/project/howplay" },
+  { pjtName: "마이풋 트립", pjtDate: "2023/03", pjtLink: "/project/myfoottrip" },
+  { pjtName: "SSEKER", pjtDate: "2023/01", pjtLink: "/project/portfolio" },
+  { pjtName: "버닝타임", pjtDate: "2022/11", pjtLink: "/project/burningtime" },
+  { pjtName: "LLATROF", pjtDate: "2022/11", pjtLink: "/project/portfolio" },
 ];
 
 const ProjectListItem = ({

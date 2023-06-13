@@ -1,19 +1,24 @@
-import { aboutShow } from '@/store/layout';
+import { aboutShow, scrollend } from "@/store/layout";
 import { useRouter, usePathname } from "next/navigation";
 import React, { useEffect } from "react";
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue } from "recoil";
 import { keyframes, styled } from "styled-components";
 
 function MainHeader() {
   const pathName = usePathname();
   const aboutShowState = useRecoilValue(aboutShow);
+  const isScrollEnd = useRecoilValue(scrollend);
 
   useEffect(() => {
-    console.log(pathName);
-  }, [pathName]);
+    console.log(isScrollEnd);
+  }, [isScrollEnd]);
 
   return (
-    <MainHeaderDiv className={`${pathName !== "/" || aboutShowState ? "toTop" : "toBottom"}`}>
+    <MainHeaderDiv
+      className={`${
+        pathName !== "/" || aboutShowState ? "toTop" : "toBottom"
+      } ${isScrollEnd ? "" : "scrolling"}`}
+    >
       <a href='/'>
         <span className='slideup'>
           <h2>프론트엔드 개발자</h2>
@@ -52,16 +57,19 @@ const MainHeaderDiv = styled.header`
   top: 2rem;
   left: 3rem;
   transform: translate3d(0, calc(100vh - 26rem), 0);
-  
-  transition: 0.5s all cubic-bezier(.23,-0.21,.01,1);
+
+  transition: 0.7s all cubic-bezier(0.23, -0.21, 0.01, 1);
   &:not(.toBottom) {
     transform: translate3d(0, 0, 0);
-    h1, h2 {
+    h1,
+    h2 {
       animation: ${WordStart} 0.3s forwards;
     }
 
     p {
-      transition: 0.2s;
+      height: 0px;
+      
+      transition: 0.2s cubic-bezier(0.23, -0.21, 0.01, 1);
       opacity: 0;
       visibility: hidden;
     }
@@ -79,7 +87,7 @@ const MainHeaderDiv = styled.header`
 
     transform: translate3d(0, 120%, 0);
 
-    transition: color 0.3s;
+    transition: color 0.3s cubic-bezier(0.23, -0.21, 0.01, 1);
 
     animation: ${WordStart} 1s forwards;
     animation-delay: 2s;
@@ -91,7 +99,7 @@ const MainHeaderDiv = styled.header`
 
     transform: translate3d(0, 120%, 0);
 
-    transition: color 0.3s;
+    transition: color 0.3s cubic-bezier(0.23, -0.21, 0.01, 1);
 
     animation: ${WordStart} 1s forwards;
     animation-delay: 2s;
@@ -100,7 +108,7 @@ const MainHeaderDiv = styled.header`
   p {
     font-size: 1.5rem;
 
-    transition: 0.5s;
+    transition: 0.7s cubic-bezier(0.23, -0.21, 0.01, 1);
 
     transform: translate3d(0, 120%, 0);
 
@@ -116,6 +124,23 @@ const MainHeaderDiv = styled.header`
       h1 {
         color: transparent;
         -webkit-text-stroke: 2px black;
+      }
+    }
+  }
+
+  &.scrolling {
+    a {
+      h2,
+      h1 {
+        color: transparent;
+        -webkit-text-stroke: 2px black;
+      }
+      &:hover {
+        h2,
+        h1 {
+          color: black;
+          -webkit-text-stroke: 0px;
+        }
       }
     }
   }

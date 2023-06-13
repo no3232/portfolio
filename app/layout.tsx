@@ -9,6 +9,7 @@ import Theme from "@/styles/theme";
 import { ThemeProvider } from "styled-components";
 
 import '../styles/fonts.css'
+import BackButton from '@/components/project/BackButton';
 
 
 export default function RootLayout({
@@ -26,6 +27,7 @@ export default function RootLayout({
               {children}
               <MainFooter />
               <ResumeModal />
+              <BackButton />
             </Recoil>
           </ThemeProvider>
         </StyledComponentsRegistry>

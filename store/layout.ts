@@ -10,4 +10,9 @@ const aboutShow = atom({
   default: false
 })
 
-export {hfOutline, aboutShow}
+const scrollend = atom({
+  key: 'scrollend',
+  default: true
+})
+
+export {hfOutline, aboutShow, scrollend}
