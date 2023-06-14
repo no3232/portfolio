@@ -1,9 +1,8 @@
 'use client'
 
-import useIntersectionObserver from '@/hooks/useIntersectionObserver';
-import { scrollend } from '@/store/layout';
+import MainImage from '@/components/project/MainImage';
 import React, { useEffect, useRef } from "react";
-import { useSetRecoilState } from 'recoil';
+import DetectoMainImage from '@/public/images/Detecto/DetectoMain.png'
 
 function page() {
   
@@ -11,7 +10,7 @@ function page() {
 
   return (
     <>
-      어디한번 해봅시다
+      
     </>
   );
 }

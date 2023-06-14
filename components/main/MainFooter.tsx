@@ -15,7 +15,9 @@ function MainFooter() {
 
   return (
     <MainFooterDiv
-      className={`${pathName === "/" && "main"} ${aboutState && "disappear"} ${isScrollEnd ? "" : "disappear"}`}
+      className={`${pathName === "/" && "main"} ${aboutState && "disappear"} ${
+        isScrollEnd ? "" : "disappear"
+      }`}
     >
       <ul>
         <li>
@@ -74,8 +76,11 @@ const MainFooterDiv = styled.footer`
 
   z-index: 2;
 
+  visibility: visible;
+  opacity: 1;
+  transition: 0.2s;
+
   &.disappear {
-    transition: 0.2s;
     opacity: 0;
     visibility: hidden;
   }

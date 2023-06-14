@@ -1,4 +1,6 @@
-import { useEffect, useRef, useState, RefObject } from 'react';
+"use client";
+
+import { useEffect, useRef, useState, RefObject } from "react";
 
 interface Options {
   root?: Element | null;
@@ -6,20 +8,24 @@ interface Options {
   threshold?: number | number[];
 }
 
-export default function useIntersectionObserver(elementRef: RefObject<Element>, options: Options): boolean {
+export default function useIntersectionObserver(
+  elementRef: RefObject<Element>,
+  options: Options
+): boolean {
   const [isIntersecting, setIsIntersecting] = useState<boolean>(false);
 
-  const observer = new IntersectionObserver(([entry]) => {
-    setIsIntersecting(entry.isIntersecting);
-  }, options);
-
   useEffect(() => {
-    if(elementRef.current) {
+    if (!("IntersectionObserver" in window)) return;
+
+    const observer = new IntersectionObserver(([entry]) => {
+      setIsIntersecting(entry.isIntersecting);
+    }, options);
+    if (elementRef.current) {
       observer.observe(elementRef.current);
     }
     // Clean-up function
     return () => {
-      if(elementRef.current) {
+      if (elementRef.current) {
         observer.unobserve(elementRef.current);
       }
     };

@@ -68,7 +68,7 @@ const MainHeaderDiv = styled.header`
 
     p {
       height: 0px;
-      
+
       transition: 0.2s cubic-bezier(0.23, -0.21, 0.01, 1);
       opacity: 0;
       visibility: hidden;
@@ -84,10 +84,11 @@ const MainHeaderDiv = styled.header`
   h1 {
     font-family: AgroBold;
     font-size: 5rem;
+    -webkit-text-stroke: 1px black;
 
     transform: translate3d(0, 120%, 0);
 
-    transition: color 0.3s cubic-bezier(0.23, -0.21, 0.01, 1);
+    transition: all 0.4s cubic-bezier(0.23, -0.21, 0.01, 1);
 
     animation: ${WordStart} 1s forwards;
     animation-delay: 2s;
@@ -96,10 +97,11 @@ const MainHeaderDiv = styled.header`
   h2 {
     font-family: AgroBold;
     font-size: 2.5rem;
+    -webkit-text-stroke: 1px black;
 
     transform: translate3d(0, 120%, 0);
 
-    transition: color 0.3s cubic-bezier(0.23, -0.21, 0.01, 1);
+    transition: all 0.4s cubic-bezier(0.23, -0.21, 0.01, 1);
 
     animation: ${WordStart} 1s forwards;
     animation-delay: 2s;
@@ -123,7 +125,6 @@ const MainHeaderDiv = styled.header`
       h2,
       h1 {
         color: transparent;
-        -webkit-text-stroke: 2px black;
       }
     }
   }
@@ -133,13 +134,11 @@ const MainHeaderDiv = styled.header`
       h2,
       h1 {
         color: transparent;
-        -webkit-text-stroke: 2px black;
       }
       &:hover {
         h2,
         h1 {
           color: black;
-          -webkit-text-stroke: 0px;
         }
       }
     }
