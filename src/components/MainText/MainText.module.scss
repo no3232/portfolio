@@ -1,0 +1,19 @@
+.mainTextWrapper {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  height: 100vh;
+  width: 100%;
+
+  background-color: #ff5c00;
+}
+
+.text {
+  display: inline-block;
+
+  font-size: 100px;
+  color: #f9833e;
+  word-break: keep-all;
+}
