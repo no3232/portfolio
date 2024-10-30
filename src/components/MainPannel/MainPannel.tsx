@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useCallback, useEffect, useRef, useState } from "react";
-import styles from "./MainPannel.module.scss";
-import PannelItem from "./PannelItem";
-import { ScrollTrigger } from "gsap/all";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { useLenis } from "lenis/react";
+import { useCallback, useEffect, useRef, useState } from 'react';
+import styles from './MainPannel.module.scss';
+import PannelItem from './PannelItem';
+import { ScrollTrigger } from 'gsap/all';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { useLenis } from 'lenis/react';
 
 const MainPannel = () => {
   const lenis = useLenis();
@@ -58,36 +58,36 @@ const MainPannel = () => {
 
     flipTimeline
       .add(
-        gsap.effects.flipBack(".pannelItem", {
+        gsap.effects.flipBack('.pannelItem', {
           stagger: {
             amount: 0.4,
-            from: "random",
+            from: 'random',
           },
           duration: 0.3,
-        })
+        }),
       )
       .to(
-        "#gridContainer",
+        '#gridContainer',
         {
           gap: 0,
         },
-        "<"
+        '<',
       )
       .to(
-        ".pannelItemInner",
+        '.pannelItemInner',
         {
-          borderRadius: "0px",
+          borderRadius: '0px',
         },
-        "<"
+        '<',
       )
       .to(
-        "#mainPannelWrap",
+        '#mainPannelWrap',
         {
-          backgroundColor: "#ff5c00",
+          backgroundColor: '#ff5c00',
           duration: 0.1,
           delay: 0.7,
         },
-        "<"
+        '<',
       );
 
     // 흰색으로 뒤집기
@@ -103,40 +103,40 @@ const MainPannel = () => {
     });
 
     flipBackTimeline
-      .to("#gridContainer", {
-        gap: "3px",
+      .to('#gridContainer', {
+        gap: '3px',
         duration: 0,
-        backgroundColor: "transparent",
+        backgroundColor: 'transparent',
       })
-      .to(".pannelItemInner", {
-        borderRadius: "var(--borderRadius)",
+      .to('.pannelItemInner', {
+        borderRadius: 'var(--borderRadius)',
         duration: 0,
       })
       .to(
-        "#mainPannelWrap",
+        '#mainPannelWrap',
         {
-          backgroundColor: "#1c1d21",
+          backgroundColor: '#1c1d21',
         },
-        "<"
+        '<',
       )
       .add(
-        gsap.effects.flip(".pannelItem", {
+        gsap.effects.flip('.pannelItem', {
           stagger: {
             amount: 0.4,
-            from: "random",
+            from: 'random',
           },
-        })
+        }),
       );
 
     ScrollTrigger.create({
-      trigger: "#mainPannelWrap",
-      start: "top top",
-      end: "+=10%",
-      endTrigger: "#mainPannelWrap",
+      trigger: '#mainPannelWrap',
+      start: 'top top',
+      end: '+=10%',
+      endTrigger: '#mainPannelWrap',
       scrub: true,
       pin: true,
       refreshPriority: 1,
-      onUpdate: (self) => {
+      onUpdate: self => {
         const isAboveHalf = self.progress > 0.1; // 10% 지점을 기준으로
         const wasAboveHalf =
           (self.vars as { wasAboveHalf?: boolean }).wasAboveHalf ?? false;
@@ -155,11 +155,11 @@ const MainPannel = () => {
   }, [lenis]);
 
   return (
-    <div className={styles.mainPannelWrap} id="mainPannelWrap">
+    <div className={styles.mainPannelWrap} id='mainPannelWrap'>
       <div
         className={styles.mainPannelImage}
         ref={containerRef}
-        id="gridContainer"
+        id='gridContainer'
       >
         {Array.from({ length: 36 }).map((_, index) => (
           <PannelItem
