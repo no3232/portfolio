@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  sassOptions: {},
+  sassOptions: {
+    additionalData: `@import "@/styles/variables.scss";`,
+  },
 };
 
 export default nextConfig;

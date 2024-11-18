@@ -127,31 +127,65 @@ const MainPannel = () => {
           },
         }),
       );
+    const tl = gsap.timeline();
+    tl.to('#mainPannelWrap', {
+      scrollTrigger: {
+        trigger: '#mainPannelWrap',
+        start: 'top top',
+        end: '+=10%',
+        scrub: true,
+        pin: true,
+        onUpdate: self => {
+          const isAboveHalf = self.progress > 0.05;
+          const wasAboveHalf =
+            (self.vars as { wasAboveHalf?: boolean }).wasAboveHalf ?? false;
 
-    ScrollTrigger.create({
-      trigger: '#mainPannelWrap',
-      start: 'top top',
-      end: '+=10%',
-      endTrigger: '#mainPannelWrap',
-      scrub: true,
-      pin: true,
-      refreshPriority: 1,
-      onUpdate: self => {
-        const isAboveHalf = self.progress > 0.1; // 10% 지점을 기준으로
-        const wasAboveHalf =
-          (self.vars as { wasAboveHalf?: boolean }).wasAboveHalf ?? false;
-
-        if (isAboveHalf !== wasAboveHalf) {
-          (self.vars as { wasAboveHalf?: boolean }).wasAboveHalf = isAboveHalf;
-
-          if (isAboveHalf) {
-            flipTimeline.restart();
-          } else {
-            flipBackTimeline.restart();
+          if (isAboveHalf !== wasAboveHalf) {
+            (self.vars as { wasAboveHalf?: boolean }).wasAboveHalf =
+              isAboveHalf;
+            if (isAboveHalf) {
+              flipTimeline.restart();
+            } else {
+              flipBackTimeline.restart();
+            }
           }
-        }
+        },
       },
     });
+
+    tl.to('#mainPannelWrap', {
+      scrollTrigger: {
+        trigger: '#mainPannelWrap',
+        start: '+=10%',
+        end: '+=50%',
+        scrub: true,
+        pin: true,
+        markers: true,
+      },
+    });
+
+    // ScrollTrigger.create({
+    //   trigger: '#mainPannelWrap',
+    //   start: 'top top',
+    //   end: '+=10%',
+    //   scrub: true,
+    //   pin: true,
+    //   refreshPriority: 2,
+    //   onUpdate: self => {
+    //     const isAboveHalf = self.progress > 0.05;
+    //     const wasAboveHalf =
+    //       (self.vars as { wasAboveHalf?: boolean }).wasAboveHalf ?? false;
+
+    //     if (isAboveHalf !== wasAboveHalf) {
+    //       (self.vars as { wasAboveHalf?: boolean }).wasAboveHalf = isAboveHalf;
+    //       if (isAboveHalf) {
+    //         flipTimeline.restart();
+    //       } else {
+    //         flipBackTimeline.restart();
+    //       }
+    //     }
+    //   },
+    // });
   }, [lenis]);
 
   return (

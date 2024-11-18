@@ -20,8 +20,8 @@ const InitialLoading = ({ loadingCount }: { loadingCount: number }) => {
         lenis.stop();
       },
       onComplete: () => {
-        lenis.resize();
-        lenis.start();
+        // lenis.start();
+        // lenis.resize();
       },
     });
 

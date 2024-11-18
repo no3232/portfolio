@@ -1,11 +1,11 @@
 .mainPannelWrap {
+  display: flex;
   position: relative;
   width: 100%;
   height: 100vh; // 또는 원하는 높이
   background-color: #1c1d21;
 
   padding: 8px;
-
 }
 
 .mainPannelImage {

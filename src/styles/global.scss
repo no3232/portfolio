@@ -1,0 +1,77 @@
+@import "@/styles/variables.scss";
+
+// 기본적인 전역 SCSS 설정
+
+// Mixin
+
+// 폰트 관련 설정
+
+// Font Size
+@each $category, $variants in $typography-scale {
+  @each $variant, $style in $variants {
+    $prefix: if($category == "body", "fs-", "");
+    .#{$prefix}#{$variant} {
+      font-size: map-get($style, size);
+      line-height: map-get($style, line-height);
+    }
+  }
+}
+
+// Font Size Mixins
+@mixin typography($category, $variant) {
+  @if map-has-key($typography-scale, $category) {
+    $category-map: map-get($typography-scale, $category);
+    @if map-has-key($category-map, $variant) {
+      $style: map-get($category-map, $variant);
+      font-size: map-get($style, size);
+      line-height: map-get($style, line-height);
+    } @else {
+      @error "Variant '#{$variant}' not found in #{$category} category";
+    }
+  } @else {
+    @error "Category '#{$category}' not found in typography scale";
+  }
+}
+
+// Font Weight
+@each $weight, $value in $font-weights {
+  .text-#{$weight} {
+    font-weight: $value;
+  }
+}
+
+// Font Weight Mixin
+@mixin font-weight($weight) {
+  @if map-has-key($font-weights, $weight) {
+    font-weight: map-get($font-weights, $weight);
+  } @else {
+    @error "Font weight '#{$weight}' not found in $font-weights map.";
+  }
+}
+
+// 기본 HTML & Body 설정
+html body {
+  // 폰트는 next/localFont를 이용하기 떄문에 변수로 설정.
+  font-family: var(--font-suit), sans-serif;
+}
+
+html {
+  font-size: $desktop-rem;
+  @media (max-width: $breakpoint-tablet) {
+    font-size: $tablet-rem;
+  }
+  @media (max-width: $breakpoint-mobile) {
+    font-size: $mobile-rem;
+  }
+}
+
+body {
+  @include typography("body", "16");
+}
+
+// 그리드 템플릿 설정
+.grid {
+  display: grid;
+  grid-template-columns: repeat($grid-column, 1fr);
+  column-gap: $grid-gap;
+}
