@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import clsx from 'clsx';
 
 import styles from './MainText.module.scss';
+import { ScrollTrigger } from 'gsap/all';
 
 const textExample =
   "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s";
@@ -14,11 +15,10 @@ const MainText = () => {
     gsap.to(text, {
       scrollTrigger: {
         trigger: '.mainTextWrapper',
-        start: 'top top',
-        end: 'top+=20% top',
+        start: 'top top+=50%',
+        end: 'top top',
         scrub: true,
-        markers: true,
-        refreshPriority: -1,
+        refreshPriority: 10,
       },
       color: '#ffffff',
       scrub: true,
@@ -34,7 +34,7 @@ const MainText = () => {
       <p>
         {textExample.split('').map((char, idx) => (
           <span key={idx} className={clsx(styles.text, 'mainText')}>
-            {char === ' ' ? '\u00A0' : char} {/* 공백을 &nbsp;로 변환 */}
+            {char === ' ' ? '\u00A0' : char}
           </span>
         ))}
       </p>

@@ -1,0 +1,54 @@
+@import "@/styles/variables.scss";
+
+.aboutSubTextWrapper {
+  grid-row: 1 / 4;
+  grid-column: 10 / 16;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  height: 300%;
+}
+
+.aboutSubTextBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  height: calc(100% / 3);
+}
+
+.boldText {
+  color: $color-primary;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.textDiv {
+  word-break: keep-all;
+  b {
+    color: $color-white;
+    background-color: $color-primary;
+  }
+  span {
+    display: none;
+    opacity: 1;
+    line-height: 1.5;
+  }
+}
+
+.cursorAfter {
+  &::after {
+    content: "|";
+    animation: blink 500ms linear infinite;
+    color: $color-primary;
+  }
+}

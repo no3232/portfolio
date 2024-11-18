@@ -1,0 +1,18 @@
+@import "@/styles/variables.scss";
+
+.aboutMainTextWrapper {
+  grid-row: 2 / 4;
+  grid-column: 1 / 10;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-end;
+
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+}
+
+
+.importantText {
+  color: $color-primary;
+}

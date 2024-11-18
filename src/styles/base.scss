@@ -1,3 +1,7 @@
+@import "@/styles/variables.scss";
+
+// CSS Reset을 적용하는 기본 SCSS 설정
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -108,6 +112,7 @@ section {
 body {
   line-height: 1;
   overflow-x: hidden;
+  background-color: $color-bg;
 }
 ol,
 ul {
@@ -128,6 +133,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+a {
+  text-decoration: none;
+}
 
 html.lenis {
   height: auto;
@@ -144,4 +152,5 @@ html.lenis {
 
 * {
   box-sizing: border-box;
+  color: $color-white;
 }

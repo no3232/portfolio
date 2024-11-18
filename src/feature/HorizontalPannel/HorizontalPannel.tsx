@@ -19,6 +19,7 @@ const HorizontalPannel = () => {
         scrub: true,
         pin: true,
         markers: true,
+        refreshPriority: 1,
       },
       xPercent: -100 * (panels.length - 1),
       ease: 'none',
@@ -27,9 +28,9 @@ const HorizontalPannel = () => {
 
   return (
     <div className={clsx(styles.PanelContainer, 'horizontalContainer')}>
-      <div className={clsx(styles.PanelItem, 'horizontalItem')}>test</div>
-      <div className={clsx(styles.PanelItem, 'horizontalItem')}>test2</div>
-      <div className={clsx(styles.PanelItem, 'horizontalItem')}>test3</div>
+      <div className={clsx(styles.PanelItem1, 'horizontalItem')}>test</div>
+      <div className={clsx(styles.PanelItem2, 'horizontalItem')}>test2</div>
+      <div className={clsx(styles.PanelItem3, 'horizontalItem')}>test3</div>
     </div>
   );
 };

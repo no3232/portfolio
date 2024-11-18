@@ -9,11 +9,25 @@
   top: 0; // 추가
 }
 
-.PanelItem {
+.PanelItem1 {
   flex-shrink: 0;
   width: 100vw;
   height: 100vh;
   background-color: red;
+}
+
+.PanelItem2 {
+  flex-shrink: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: blue;
+}
+
+.PanelItem3 {
+  flex-shrink: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: green;
 }
 
 .panelSection {
