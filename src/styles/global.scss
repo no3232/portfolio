@@ -74,4 +74,9 @@ body {
   display: grid;
   grid-template-columns: repeat($grid-column, 1fr);
   column-gap: $grid-gap;
+  padding: 0 $grid-padding;
+}
+
+.h-full {
+  height: 100%;
 }

@@ -33,6 +33,13 @@ const NavBar = () => {
         >
           About Me
         </Link>
+        <Link
+          className={styles.navLink}
+          href={'#skill-section'}
+          onClick={handleClick}
+        >
+          Skills
+        </Link>
         <Link className={styles.navLink} href={'#'}>
           Projects
         </Link>

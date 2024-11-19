@@ -1,0 +1,56 @@
+@import "@/styles/variables.scss";
+
+.skillBoxGrid {
+  grid-column: 1 / 6;
+  grid-row: 1 / 10;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(1fr);
+}
+
+.skillBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 1rem;
+
+  aspect-ratio: 1 / 1;
+
+  width: 100%;
+  height: 100%;
+  background-color: $color-boxbg;
+
+  p {
+    color: $color-graytext;
+  }
+
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $color-primary;
+    p {
+      color: $color-white;
+    }
+  }
+}
+
+.skillBoxNone {
+  aspect-ratio: 1 / 1;
+
+  background-color: $color-bg;
+}
+
+.active {
+  background-color: $color-primary;
+
+  p {
+    color: $color-white;
+  }
+
+  img {
+    filter: brightness(0) invert(1);
+  }
+}
