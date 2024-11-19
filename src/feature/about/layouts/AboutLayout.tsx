@@ -30,10 +30,10 @@ const AboutLayout = () => {
   }, []);
 
   return (
-    <div className={clsx(styles.AboutLayoutWrapper)}>
+    <div className={clsx(styles.aboutLayoutWrapper)}>
       <section
         ref={aboutMainTextRef}
-        className={clsx('grid', styles['clac-h'])}
+        className={clsx('grid', styles.aboutRow, 'h-full')}
         id='about-section'
       >
         <AboutMainText id='about-main-text' subTextKey={aboutSubTextKey} />

@@ -53,7 +53,7 @@ const SubTextContent = ({
         each: 0.1,
         from: 'start',
       },
-      duration: 80,
+      duration: 50,
     }).to(subText, {
       display: 'none',
       stagger: {

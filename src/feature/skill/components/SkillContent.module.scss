@@ -1,0 +1,65 @@
+@import "@/styles/variables.scss";
+
+.skillContent {
+  grid-column: 9 / 16;
+  grid-row: 1 / 5;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  padding-top: 120px;
+
+  gap: 10rem;
+}
+
+.skillTitleWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+}
+
+.skillTitle {
+  opacity: 0;
+  transform: translateY(10rem);
+}
+
+.skillDescription {
+  opacity: 0;
+  transform: translateY(3rem);
+}
+
+.skillScore {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20rem;
+  width: 20rem;
+
+  b {
+    color: $color-primary;
+  }
+
+  svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg); // 12시 방향부터 시작하도록
+  }
+
+  .backgroundCircle {
+    stroke-opacity: 0.2;
+  }
+}
+
+.skillContentList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  width: 100%;
+}
