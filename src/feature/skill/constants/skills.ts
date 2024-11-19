@@ -160,4 +160,4 @@ export const skills: Skill[] = [
       '멀티 스테이지 빌드 최적화'
     ],
   },
-];
+] as const;

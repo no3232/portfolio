@@ -49,6 +49,22 @@
   }
 }
 
+// Font Color
+@each $color, $value in $colors {
+  .text-#{$color} {
+    color: $value;
+  }
+}
+
+// Font Color Mixin
+@mixin font-color($color) {
+  @if map-has-key($colors, $color) {
+    color: map-get($colors, $color);
+  } @else {
+    @error "Font color '#{$color}' not found in $colors map.";
+  }
+}
+
 // 기본 HTML & Body 설정
 html body {
   // 폰트는 next/localFont를 이용하기 떄문에 변수로 설정.
@@ -57,16 +73,42 @@ html body {
 
 html {
   font-size: $desktop-rem;
-  @media (max-width: $breakpoint-tablet) {
-    font-size: $tablet-rem;
-  }
-  @media (max-width: $breakpoint-mobile) {
-    font-size: $mobile-rem;
-  }
+  // @media (max-width: $breakpoint-tablet) {
+  //   font-size: $tablet-rem;
+  // }
+  // @media (max-width: $breakpoint-mobile) {
+  //   font-size: $mobile-rem;
+  // }
 }
 
 body {
   @include typography("body", "16");
+}
+
+#main-contents {
+  position: relative;
+  background-color: $color-bg;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 100;
+    width: 15rem;
+    height: 15rem;
+    background-color: $color-primary;
+    border-radius: 100px 0 0;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 15rem;
+    height: 15rem;
+    background-color: $color-bg;
+  }
 }
 
 // 그리드 템플릿 설정
