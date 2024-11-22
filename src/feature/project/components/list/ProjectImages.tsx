@@ -1,13 +1,10 @@
 import styles from './ProjectImages.module.scss';
 
-const ProjectImages = () => {
+const ProjectImages = ({image}: {image: string}) => {
   return (
     <div className={styles.projectImageWrapper}>
       <div className={styles.imgWrapper}>
-        <img
-          src='https://cdn.spotvnews.co.kr/news/photo/202311/640986_943029_2612.jpg'
-          alt=''
-        />
+        <img src={image} alt='' />
       </div>
     </div>
   );

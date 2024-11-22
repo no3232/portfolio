@@ -111,6 +111,32 @@ body {
   }
 }
 
+#project-detail-contents {
+  position: relative;
+  background-color: $color-bg;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 100;
+    width: 15rem;
+    height: 15rem;
+    background-color: $color-primary;
+    border-radius: 100px 0 0;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 15rem;
+    height: 15rem;
+    background-color: $color-bg;
+  }
+}
+
 // 그리드 템플릿 설정
 .grid {
   display: grid;

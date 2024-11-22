@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from 'react';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/github-dark.css';
 
+import styles from './CodeBlock.module.scss';
+
 interface CodeBlockProps {
   code: string;
   language: string;
@@ -20,7 +22,7 @@ export function CodeBlock({ code, language, fileName }: CodeBlockProps) {
   }, [code, language]);
 
   return (
-    <div>
+    <div className={styles.codeBlockWrapper}>
       <pre>
         <code ref={codeRef} className={`language-${language}`}>
           {code}

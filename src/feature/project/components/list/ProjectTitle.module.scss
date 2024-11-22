@@ -5,4 +5,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+
+  word-break: keep-all;
+  white-space: nowrap; 
 }
