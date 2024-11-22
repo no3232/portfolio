@@ -16,7 +16,7 @@ const NavBar = () => {
     if (href.includes('#')) {
       if (lenis) {
         const targetId = e.currentTarget.hash;
-        lenis.scrollTo(targetId);
+        lenis.scrollTo(targetId, { immediate: true });
       }
     }
   };
@@ -24,7 +24,7 @@ const NavBar = () => {
   // 화면 하단으로 스크롤
   const scrollToBottom = () => {
     if (lenis) {
-      lenis.scrollTo(document.body.scrollHeight);
+      lenis.scrollTo(document.body.scrollHeight, { immediate: true });
     }
   };
 

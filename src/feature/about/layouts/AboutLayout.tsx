@@ -15,14 +15,14 @@ const AboutLayout = () => {
   const aboutMainTextRef = useRef<HTMLDivElement>(null);
 
   const [aboutSubTextKey, setAboutSubTextKey] =
-    useState<AboutConstantsType>('브릿지_역할을');
+    useState<AboutConstantsType>('인터랙션을_좋아');
 
   useGSAP(() => {
     gsap.to(aboutMainTextRef.current, {
       scrollTrigger: {
         trigger: aboutMainTextRef.current,
         start: 'top top',
-        end: 'bottom+=200% top',
+        end: '+=200%',
         pin: '#about-main-text',
         pinSpacing: false,
       },

@@ -18,7 +18,6 @@ const SubTextContent = ({
   setSubTextKey: (key: AboutConstantsType) => void;
 }) => {
   const SubTextContentRef = useRef<HTMLDivElement>(null);
-  const [isCursor, setIsCursor] = useState<boolean>(false);
 
   useGSAP(() => {
     const subText = gsap.utils.toArray(`.${content}-inner-text`);
@@ -26,53 +25,31 @@ const SubTextContent = ({
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: SubTextContentRef.current,
-        start: 'top top',
-        end: 'bottom top',
-        pin: true,
+        start: 'top top+=50%',
+        end: 'bottom-=50% bottom-=40%',
         scrub: true,
-        onLeave: () => {
-          setIsCursor(false);
-        },
-        onLeaveBack: () => {
-          setIsCursor(false);
-        },
         onEnter: () => {
           setSubTextKey(content);
-          setIsCursor(true);
         },
         onEnterBack: () => {
           setSubTextKey(content);
-          setIsCursor(true);
         },
       },
     });
 
     tl.to(subText, {
-      display: 'inline',
+      color: 'white',
       stagger: {
         each: 0.1,
         from: 'start',
       },
-      duration: 50,
-    }).to(subText, {
-      display: 'none',
-      stagger: {
-        each: 0.1,
-        from: 'end',
-      },
+      duration: 1,
     });
   }, []);
 
   return (
     <div className={styles.aboutSubTextBox} ref={SubTextContentRef}>
-      <div
-        className={clsx(
-          styles.textDiv,
-          'text-regular',
-          'h5',
-          isCursor && styles.cursorAfter,
-        )}
-      >
+      <div className={clsx(styles.textDiv, 'text-regular', 'fs-24')}>
         {wrapSpan(AboutConstants[content].innerText, content)}
       </div>
     </div>
@@ -90,8 +67,8 @@ const AboutSubText = ({ setSubTextKey, ...props }: AboutSubTextProps) => {
         content={'인터랙션을_좋아'}
         setSubTextKey={setSubTextKey}
       />
-      <SubTextContent content={'브릿지_역할을'} setSubTextKey={setSubTextKey} />
       <SubTextContent content={'꾸준히_학습'} setSubTextKey={setSubTextKey} />
+      <SubTextContent content={'브릿지_역할을'} setSubTextKey={setSubTextKey} />
     </div>
   );
 };

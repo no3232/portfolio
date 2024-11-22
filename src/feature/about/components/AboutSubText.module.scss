@@ -9,6 +9,10 @@
   justify-content: flex-start;
 
   height: 300%;
+
+  white-space: pre-line;
+
+  padding-top: 50vh;
 }
 
 .aboutSubTextBox {
@@ -16,7 +20,7 @@
   flex-direction: column;
   justify-content: center;
 
-  height: calc(100% / 3);
+  height: 100vh;
 }
 
 .boldText {
@@ -35,20 +39,12 @@
 .textDiv {
   word-break: keep-all;
   b {
-    color: $color-white;
+    // color: $color-white;
     background-color: $color-primary;
   }
   span {
-    display: none;
+    color: $color-graytext;
     opacity: 1;
     line-height: 1.5;
-  }
-}
-
-.cursorAfter {
-  &::after {
-    content: "|";
-    animation: blink 500ms linear infinite;
-    color: $color-primary;
   }
 }

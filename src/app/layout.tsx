@@ -5,8 +5,8 @@ import { ReactLenis } from 'lenis/react';
 import { suit } from '@/styles/font/font';
 
 export const metadata: Metadata = {
-  title: '포폴포폴',
-  description: '포폴포폴',
+  title: '배상준 | Frontend Developer',
+  description: '인터랙션을 좋아하는 프론트엔드 개발자 배상준입니다.',
 };
 
 export default function RootLayout({

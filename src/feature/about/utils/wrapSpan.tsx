@@ -18,14 +18,16 @@ const wrapSpan = (text: string, key: string) => {
     }
 
     // 일반 텍스트는 기존처럼 span으로 감싸기
-    return part.split('').map((char, charIndex) => (
-      <span
-        className={`${key}-inner-text`}
-        key={`${key}-${partIndex}-${charIndex}`}
-      >
-        {char}
-      </span>
-    ));
+    return part.split('').map((char, charIndex) => {
+      return (
+        <span
+          className={`${key}-inner-text`}
+          key={`${key}-${partIndex}-${charIndex}`}
+        >
+          {char}
+        </span>
+      );
+    });
   });
 };
 
