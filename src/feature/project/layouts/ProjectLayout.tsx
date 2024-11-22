@@ -101,6 +101,11 @@ const ProjectLayout = () => {
   return (
     <div className={styles.projectLayoutWrapper} id='project-section-wrapper'>
       <section id='project-section'>
+      <div className={styles.skillTitle}>
+          <h3 className='h6 text-bold'>
+            WHAT I DID<b className='text-primary'>?</b>
+          </h3>
+        </div>
         <div className={clsx(styles.projectGridSection, 'grid h-full')}>
           <ProjectTitle title='HAEDEUP' />
           <ProjectImages image='/project/haedeup.png' />

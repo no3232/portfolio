@@ -33,7 +33,7 @@ const ProjectDescription = ({ description }: ProjectDescriptionProps) => {
         </p>
         <p className={clsx('text-white', 'fs-20')}>{description.description}</p>
       </div>
-      <Link href={description.link}>
+      <Link href={description.link} scroll={true}>
         <button
           className={clsx('text-white', 'fs-20', styles.viewProjectButton)}
         >

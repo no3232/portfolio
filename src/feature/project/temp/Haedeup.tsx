@@ -157,22 +157,12 @@ const HaedeupLayout = () => {
             <section>
               <p className='text-graytext'>Problem Solving</p>
               <p className='fs-30'>History API를 이용한 usePannel 훅</p>
-              <p>
-                리액트 훅 폼을 이용하면서 중복되는 항목에 대한 Input이 많다는
-                생각을 했습니다. 검증 로직 또한 비슷한 항목이 다수 존재했습니다.
-                <br />
-                예를 들어 로그인, 회원가입, 정보 수정에서 사용되는 id, 비밀번호,
-                이름, 이메일, 주소 등의 항목이 있습니다.
-                <br />
-                따라서 컴파운드 컴포넌트 패턴을 이용해 중복되는 항목을
-                컴포넌트화 하여 재사용성을 높였습니다.
-              </p>
               <br />
               <p className='fs-30'>GraphQL 코드 생성기</p>
               <br />
-              <p className='fs-30'>History API를 이용한 usePannel 훅</p>
+              <p className='fs-30'>Next.js를 이용한 PDF 백오피스툴</p>
               <br />
-              <p className='fs-30'>History API를 이용한 usePannel 훅</p>
+              <p className='fs-30'>turbo를 통한 모노레포 구축</p>
             </section>
             {/* <section>
               <p className='text-graytext'>Outcome</p>
