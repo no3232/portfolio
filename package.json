@@ -12,6 +12,7 @@
     "@gsap/react": "^2.1.1",
     "clsx": "^2.1.1",
     "gsap": "^3.12.5",
+    "highlight.js": "^11.10.0",
     "imagesloaded": "^5.0.0",
     "lenis": "^1.1.14",
     "next": "14.2.15",
@@ -19,6 +20,7 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "@types/imagesloaded": "^4.1.6",
     "@types/node": "^20",
     "@types/react": "^18",

@@ -32,7 +32,7 @@ const SkillContent = ({ skillKey }: { skillKey: string }) => {
   useGSAP(() => {
     gsap.to(skillContentRef.current, {
       scrollTrigger: {
-        trigger: '#skill-section',
+        trigger: '#skill-grid-div',
         start: 'top top',
         end: `bottom bottom`,
         pin: '#skill-content',
@@ -80,7 +80,7 @@ const SkillContent = ({ skillKey }: { skillKey: string }) => {
       .to(
         scoreNumberRef.current,
         {
-          innerHTML: skill.score, // 문자열로 변환
+          innerHTML: skill.score,
           duration: 1,
           snap: { innerHTML: 1 },
           ease: 'power2.out',
@@ -107,7 +107,7 @@ const SkillContent = ({ skillKey }: { skillKey: string }) => {
 
     gsap.to(skillContentRef.current, {
       scrollTrigger: {
-        trigger: '#skill-section',
+        trigger: '#skill-grid-div',
         start: 'top-=200px top',
         end: `bottom bottom`,
         onEnter: () => {
@@ -120,7 +120,9 @@ const SkillContent = ({ skillKey }: { skillKey: string }) => {
   return (
     <div className={styles.skillContent} id='skill-content'>
       <div className={styles.skillTitleWrapper}>
-        <h3 className={clsx('h3', 'skillTitle', styles.skillTitle, 'text-bold')}>
+        <h3
+          className={clsx('h3', 'skillTitle', styles.skillTitle, 'text-bold')}
+        >
           {skill.title}
         </h3>
         <div className={styles.skillScore}>

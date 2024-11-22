@@ -13,12 +13,19 @@ const SkillLayout = () => {
 
   return (
     <div className={styles.skillLayoutWrapper}>
-      <section
-        className={clsx('grid', 'h-full', styles.skillRow)}
-        id='skill-section'
-      >
-        <SkillBoxGrid setSkillKey={setSkillKey} skillKey={skillKey} />
-        <SkillContent skillKey={skillKey} />
+      <section id='skill-section'>
+        <div className={styles.skillTitle}>
+          <h3 className='h6 text-bold'>
+            WHAT CAN I USE<b className='text-primary'>?</b>
+          </h3>
+        </div>
+        <div
+          className={clsx('grid', 'h-full', styles.skillRow)}
+          id='skill-grid-div'
+        >
+          <SkillBoxGrid setSkillKey={setSkillKey} skillKey={skillKey} />
+          <SkillContent skillKey={skillKey} />
+        </div>
       </section>
     </div>
   );

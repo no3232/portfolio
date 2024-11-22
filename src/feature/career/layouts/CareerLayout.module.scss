@@ -1,3 +1,12 @@
-.careerLayoutWrapper {
-  height: 100vh;
+@import "@/styles/variables.scss";
+
+.careerSection {
+  height: 100%;
+  min-height: 100vh;
+
+  padding: 10rem 0;
+}
+
+.careerTitle {
+  padding-left: $grid-padding;
 }
