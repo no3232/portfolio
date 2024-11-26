@@ -21,4 +21,62 @@
   margin-bottom: 3rem;
 }
 
+.imageListGrid {
+  display: grid;
+  grid-column: 5/11;
+  grid-row: 1/2;
+  height: 100%;
+  overflow: hidden;
+}
 
+.projectThumbnailImage {
+  --clipIn: 100%;
+  --clipOut: 100%;
+  --imgScale: 1;
+  --imgDirection: -1;
+  --imgTrans: 1.4;
+
+  grid-area: 1/1/2/2;
+  display: inline-block;
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(
+    var(--clipIn) var(--clipIn), // 좌상단 점 x y
+    var(--clipOut) var(--clipIn), // 우상단 점 x y
+    var(--clipOut) var(--clipOut), // 우하단 점 x y
+    var(--clipIn) var(--clipOut) // 좌하단 점 x y
+  );
+
+  // clip-path: polygon(0 0, calc(100% - var(--clip)) 0, calc(100% - var(--clip)) var(--clip), 100% 100%, 0 100%);
+
+  background: $color-primary;
+}
+
+.thumbnailImageWrapper {
+  transform-origin: 25% 25%;
+  transform: scale(var(--imgScale));
+  width: 100%;
+  height: 100%;
+}
+
+.thumbnailImageInner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.thumbnailImage {
+  object-fit: cover;
+  object-position: center;
+
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+
+  position: absolute;
+  transform: translate(calc(var(--imgTrans) / (2 * var(--imgDirection))),calc(var(--imgTrans) / (2 * var(--imgDirection))));
+}
