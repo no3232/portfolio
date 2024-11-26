@@ -14,7 +14,7 @@
     "gsap": "^3.12.5",
     "highlight.js": "^11.10.0",
     "imagesloaded": "^5.0.0",
-    "lenis": "^1.1.14",
+    "lenis": "^1.1.17",
     "next": "14.2.15",
     "react": "^18",
     "react-dom": "^18"
