@@ -7,6 +7,9 @@
   justify-content: center;
   overflow: hidden;
   background: $color-bg; // 배경색 설정
+
+  perspective: 1000vw;
+  transform-style: preserve-3d;
 }
 
 .panelContainer {

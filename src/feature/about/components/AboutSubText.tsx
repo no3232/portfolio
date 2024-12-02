@@ -6,7 +6,6 @@ import AboutConstants, {
 } from '../constants/AboutConstants';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import { useRef, useState } from 'react';
 import clsx from 'clsx';
 import wrapSpan from '../utils/wrapSpan';
 
@@ -17,14 +16,12 @@ const SubTextContent = ({
   content: AboutConstantsType;
   setSubTextKey: (key: AboutConstantsType) => void;
 }) => {
-  const SubTextContentRef = useRef<HTMLDivElement>(null);
-
   useGSAP(() => {
     const subText = gsap.utils.toArray(`.${content}-inner-text`);
 
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: SubTextContentRef.current,
+        trigger: `#${content}-inner-text-wrapper`,
         start: 'top top+=50%',
         end: 'bottom-=50% bottom-=40%',
         scrub: true,
@@ -48,7 +45,7 @@ const SubTextContent = ({
   }, []);
 
   return (
-    <div className={styles.aboutSubTextBox} ref={SubTextContentRef}>
+    <div className={styles.aboutSubTextBox} id={`${content}-inner-text-wrapper`}>
       <div className={clsx(styles.textDiv, 'text-regular', 'fs-24')}>
         {wrapSpan(AboutConstants[content].innerText, content)}
       </div>

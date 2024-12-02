@@ -2,6 +2,7 @@ import styles from './SkillBoxGrid.module.scss';
 import { Skill, skills } from '../constants/skills';
 import clsx from 'clsx';
 import Image from 'next/image';
+import { Fragment } from 'react';
 
 const SkillBoxNone = () => {
   return <div className={styles.skillBoxNone}></div>;
@@ -40,15 +41,14 @@ const SkillBoxGrid = ({
   return (
     <div className={styles.skillBoxGrid}>
       {skills.map(skill => (
-        <>
+        <Fragment key={skill.title}>
           <SkillBox
-            key={skill.title}
             skill={skill}
             setSkillKey={setSkillKey}
             skillKey={skillKey}
           />
           <SkillBoxNone />
-        </>
+        </Fragment>
       ))}
     </div>
   );
