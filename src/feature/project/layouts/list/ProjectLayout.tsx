@@ -6,10 +6,10 @@ import styles from './ProjectLayout.module.scss';
 import gsap from 'gsap';
 
 import { useGSAP } from '@gsap/react';
-import ProjectDescription from '../components/list/ProjectDescription';
-import ProjectTitle from '../components/list/ProjectTitle';
+import ProjectDescription from '../../components/list/ProjectDescription';
+import ProjectTitle from '../../components/list/ProjectTitle';
 import { useState } from 'react';
-import { createProjectListTimeline } from '../util/createProjectListTimeline';
+import { createProjectListTimeline } from '../../util/createProjectListTimeline';
 
 export interface ProjectDescriptionInterface {
   title: string;

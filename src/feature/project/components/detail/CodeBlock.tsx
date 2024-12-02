@@ -12,7 +12,7 @@ interface CodeBlockProps {
   fileName?: string;
 }
 
-export function CodeBlock({ code, language, fileName }: CodeBlockProps) {
+const CodeBlock = ({ code, language, fileName }: CodeBlockProps) => {
   const codeRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -30,4 +30,6 @@ export function CodeBlock({ code, language, fileName }: CodeBlockProps) {
       </pre>
     </div>
   );
-}
+};
+
+export default CodeBlock;

@@ -1,5 +1,5 @@
 import gsap from 'gsap';
-import { ProjectDescriptionInterface } from '../layouts/ProjectLayout';
+import { ProjectDescriptionInterface } from '../layouts/list/ProjectLayout';
 
 export function createProjectListTimeline(
   pinId: string,

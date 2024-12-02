@@ -1,6 +1,6 @@
 'use client';
 
-import PortfolioLayout from '@/feature/project/temp/Portfolio';
+import PortfolioLayout from '@/feature/project/layouts/detail/PortfolioDetailLayout';
 import { GSAPConfig } from '@/lib/gsap/GSAPConfig';
 
 GSAPConfig.initialize();

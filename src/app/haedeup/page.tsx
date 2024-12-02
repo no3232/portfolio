@@ -1,6 +1,6 @@
 'use client';
 
-import HaedeupLayout from '@/feature/project/temp/Haedeup';
+import HaedeupLayout from '@/feature/project/layouts/detail/HaedeupDetailLayout';
 import { GSAPConfig } from '@/lib/gsap/GSAPConfig';
 
 GSAPConfig.initialize();
