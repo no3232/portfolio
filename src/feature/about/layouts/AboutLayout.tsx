@@ -4,23 +4,19 @@ import clsx from 'clsx';
 import AboutMainText from '../components/AboutMainText';
 import AboutSubText from '../components/AboutSubText';
 import styles from './AboutLayout.module.scss';
-import AboutConstants, {
-  AboutConstantsType,
-} from '../constants/AboutConstants';
+import { AboutConstantsType } from '../constants/AboutConstants';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { useRef, useState } from 'react';
 
 const AboutLayout = () => {
-  const aboutMainTextRef = useRef<HTMLDivElement>(null);
-
   const [aboutSubTextKey, setAboutSubTextKey] =
     useState<AboutConstantsType>('인터랙션을_좋아');
 
   useGSAP(() => {
-    gsap.to(aboutMainTextRef.current, {
+    gsap.to('#about-section', {
       scrollTrigger: {
-        trigger: aboutMainTextRef.current,
+        trigger: '#about-section',
         start: 'top top',
         end: '+=200%',
         pin: '#about-main-text',
@@ -32,7 +28,6 @@ const AboutLayout = () => {
   return (
     <div className={clsx(styles.aboutLayoutWrapper)}>
       <section
-        ref={aboutMainTextRef}
         className={clsx('grid', styles.aboutRow, 'h-full')}
         id='about-section'
       >

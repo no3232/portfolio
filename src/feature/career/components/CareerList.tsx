@@ -1,44 +1,21 @@
+'use client';
+
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import styles from './CareerList.module.scss';
+import calculateOptimalValues from '../util/calcultaeOptimalValues';
 
 const CareerList = () => {
-  const calculateOptimalValues = () =>
-     {
-    const viewportWidth = window.innerWidth;
-    const panelWidth = viewportWidth * 0.5; // 50vw를 픽셀로 변환
-
-    // radius를 패널 너비에 비례하여 계산
-    // 패널이 더 평평하게 보이도록 패널 너비의 약 4배로 설정
-    const radius = panelWidth * 4;
-
-    // 패널이 화면 밖으로 나가는 각도 계산
-    // 아크탄젠트를 사용하여 패널 너비의 절반이 만드는 각도 계산
-    const angleInRadians = Math.atan(panelWidth / 2 / radius);
-    const angleInDegrees = (angleInRadians * 180) / Math.PI;
-
-    // 시작과 끝 각도를 계산된 각도의 약 1.2배로 설정
-    const startAngle = -angleInDegrees * 4;
-    const endAngle = angleInDegrees * 4;
-
-    return { radius, startAngle, endAngle };
-  };
-
   useGSAP(() => {
-    const container = document.querySelector('#career-list-container');
+    const container = gsap.utils.selector('#career-list-container');
     const panels = gsap.utils.toArray<HTMLElement[]>('.panel');
 
     const { radius, startAngle, endAngle } = calculateOptimalValues();
 
-    gsap.set(container, {
-      perspective: '800rem',
-      transformStyle: 'preserve-3d',
-    });
-
     panels.forEach((panel, i) => {
       gsap.set(panel, {
         rotationY: startAngle,
-        y: i % 2 === 0 ? 100 : -100,
+        y: i % 2 === 0 ? 50 : -50,
         z: i % 2 === 0 ? -radius + 100 * i : -radius - 100 * i,
         transformOrigin: `50% 50% ${radius}px`,
       });

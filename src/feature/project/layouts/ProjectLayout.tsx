@@ -2,15 +2,14 @@
 
 import clsx from 'clsx';
 import styles from './ProjectLayout.module.scss';
-import Link from 'next/link';
 
 import gsap from 'gsap';
 
 import { useGSAP } from '@gsap/react';
 import ProjectDescription from '../components/list/ProjectDescription';
 import ProjectTitle from '../components/list/ProjectTitle';
-import ProjectImages from '../components/list/ProjectImages';
 import { useState } from 'react';
+import { createProjectListTimeline } from '../util/createProjectListTimeline';
 
 export interface ProjectDescriptionInterface {
   title: string;
@@ -106,151 +105,11 @@ const ProjectLayout = () => {
   const [currentProject, setCurrentProject] = useState(0);
 
   useGSAP(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: '#project-grid-section',
-        start: 'top top',
-        end: '+=300%',
-        pin: true,
-        // markers: true,
-        scrub: true,
-        snap: {
-          snapTo: 1 / 3,
-          duration: 0.5,
-          ease: 'none',
-        },
-      },
-    });
-
-    tl.fromTo(
-      `#${projectList[0].title}`,
-      {
-        '--clipIn': '0%',
-        '--clipOut': '100%',
-        '--imgScale': '1',
-        '--imgDirection': '-1',
-        '--imgTrans': '0',
-      },
-      {
-        '--clipIn': '0%',
-        '--clipOut': '0%',
-        '--imgScale': '0',
-        '--imgDirection': '-1',
-        '--imgTrans': '100%',
-        ease: 'none',
-      },
-    )
-      .fromTo(
-        `#${projectList[1].title}`,
-        {
-          '--clipIn': '100%',
-          '--clipOut': '100%',
-          '--imgDirection': '1',
-          '--imgScale': '1.4',
-          '--imgTrans': '100%',
-        },
-        {
-          '--clipIn': '0%',
-          '--clipOut': '100%',
-          '--imgDirection': '1',
-          '--imgScale': '1',
-          '--imgTrans': '0%',
-          ease: 'none',
-          onComplete: () => {
-            setCurrentProject(1);
-          },
-          onReverseComplete: () => {
-            setCurrentProject(0);
-          },
-        },
-        '<',
-      )
-      .fromTo(
-        `#${projectList[1].title}`,
-        {
-          '--clipIn': '0%',
-          '--clipOut': '100%',
-          '--imgScale': '1',
-          '--imgDirection': '-1',
-          '--imgTrans': '0',
-        },
-        {
-          '--clipIn': '0%',
-          '--clipOut': '0%',
-          '--imgScale': '0',
-          '--imgDirection': '-1',
-          '--imgTrans': '100%',
-          ease: 'none',
-        },
-      )
-      .fromTo(
-        `#${projectList[2].title}`,
-        {
-          '--clipIn': '100%',
-          '--clipOut': '100%',
-          '--imgDirection': '1',
-          '--imgScale': '1.4',
-          '--imgTrans': '100%',
-        },
-        {
-          '--clipIn': '0%',
-          '--clipOut': '100%',
-          '--imgDirection': '1',
-          '--imgScale': '1',
-          '--imgTrans': '0%',
-          ease: 'none',
-          onComplete: () => {
-            setCurrentProject(2);
-          },
-          onReverseComplete: () => {
-            setCurrentProject(1);
-          },
-        },
-        '<',
-      )
-      .fromTo(
-        `#${projectList[2].title}`,
-        {
-          '--clipIn': '0%',
-          '--clipOut': '100%',
-          '--imgScale': '1',
-          '--imgDirection': '-1',
-          '--imgTrans': '0',
-        },
-        {
-          '--clipIn': '0%',
-          '--clipOut': '0%',
-          '--imgScale': '0',
-          '--imgDirection': '-1',
-          '--imgTrans': '100%',
-          ease: 'none',
-        },
-      )
-      .fromTo(
-        `#${projectList[3].title}`,
-        {
-          '--clipIn': '100%',
-          '--clipOut': '100%',
-          '--imgDirection': '1',
-          '--imgScale': '1.4',
-          '--imgTrans': '100%',
-        },
-        {
-          '--clipIn': '0%',
-          '--clipOut': '100%',
-          '--imgDirection': '1',
-          '--imgScale': '1',
-          '--imgTrans': '0%',
-          ease: 'none',
-          onComplete: () => {
-            setCurrentProject(3);
-          },
-          onReverseComplete: () => {
-            setCurrentProject(2);
-          },
-        },
-        '<',
-      );
+    createProjectListTimeline(
+      'project-grid-section',
+      projectList,
+      setCurrentProject,
+    );
   }, []);
 
   return (
@@ -270,6 +129,7 @@ const ProjectLayout = () => {
             {projectList.map((project, index) => (
               <a
                 className={styles.projectThumbnailImage}
+                key={`${project.title}-list`}
                 href={project.link}
                 id={`${project.title}`}
                 style={{

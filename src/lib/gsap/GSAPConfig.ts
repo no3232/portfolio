@@ -1,10 +1,11 @@
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
-import { flipEffects } from "./effects";
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+import { flipEffects } from './effects';
+import { CSSPlugin } from 'gsap/CSSPlugin';
 
 export class GSAPConfig {
-  static plugins = [ScrollTrigger, useGSAP];
+  static plugins = [ScrollTrigger, useGSAP, CSSPlugin];
 
   static initialize() {
     // 플러그인 등록

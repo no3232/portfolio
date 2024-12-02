@@ -27,10 +27,8 @@ const SkillContent = ({ skillKey }: { skillKey: string }) => {
   const scoreRef = useRef<SVGCircleElement>(null);
   const scoreNumberRef = useRef<HTMLElement>(null);
 
-  const skillContentRef = useRef<HTMLDivElement>(null);
-
   useGSAP(() => {
-    gsap.to(skillContentRef.current, {
+    gsap.to('#skill-content', {
       scrollTrigger: {
         trigger: '#skill-grid-div',
         start: 'top top',
@@ -105,7 +103,7 @@ const SkillContent = ({ skillKey }: { skillKey: string }) => {
         '<',
       );
 
-    gsap.to(skillContentRef.current, {
+    gsap.to('#skill-content', {
       scrollTrigger: {
         trigger: '#skill-grid-div',
         start: 'top-=200px top',
