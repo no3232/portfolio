@@ -1,13 +1,21 @@
 'use client';
 
 import Link from 'next/link';
-import { CodeBlock } from '../components/detail/CodeBlock';
+import CodeBlock from '../../components/detail/CodeBlock';
 import styles from './ProjectDetailLayout.module.scss';
 
 import { useGSAP } from '@gsap/react';
 import clsx from 'clsx';
-import DetailImage from '../components/detail/DetailImage';
-import DetailFooter from '../components/detail/DetailFooter';
+import DetailImage from '../../components/detail/DetailImage';
+import DetailFooter from '../../components/detail/DetailFooter';
+import DetailOverView from '../../components/detail/DetailOverView';
+import DetailDescription from '../../components/detail/DetailDescription';
+import DetailSkill from '../../components/detail/DetailSkill';
+import {
+  gridaDescription,
+  gridaDetailData,
+  gridaSkills,
+} from '../../constants/GRIDA';
 
 const GridaLayout = () => {
   useGSAP(() => {
@@ -41,146 +49,9 @@ const GridaLayout = () => {
             </div>
           </div> */}
           <div className={styles.detailContentSection}>
-            <section className={styles.overViewSectionGrid}>
-              <div className={styles.projectTitle}>
-                <p className='text-graytext'>Project</p>
-                <h1 className='text-white h3'>GRIDA(Service, Admin)</h1>
-              </div>
-              <div>
-                <p className='text-graytext'>Period</p>
-                <p className='text-white fs-26'>2024.01 ~ 2024.07</p>
-              </div>
-              <div>
-                <p className='text-graytext'>Role</p>
-                <p className='text-white fs-26'>Front-End(100%)</p>
-              </div>
-              <div>
-                <p className='text-graytext'>Link</p>
-                <Link
-                  href='https://grida.woodangnetwork.com'
-                  className='text-white fs-26'
-                  target='_blank'
-                >
-                  <p>https://grida.woodangnetwork.com</p>
-                </Link>
-                <Link
-                  href='https://grida-admin.woodangnetwork.com'
-                  className='text-white fs-26'
-                  target='_blank'
-                >
-                  <p>https://grida-admin.woodangnetwork.com</p>
-                </Link>
-              </div>
-              <div>
-                <p className='text-graytext'>Team</p>
-                <p className='text-white fs-26'>FE - 1</p>
-                <p className='text-white fs-26'>BE - 1</p>
-                <p className='text-white fs-26'>Designer - 2</p>
-                <p className='text-white fs-26'>PM - 1</p>
-              </div>
-            </section>
-            <section className={styles.descriptionSection}>
-              <p className='text-graytext'>Description</p>
-              <p className='text-white fs-24'>
-                (주)우당 네트웍의 실험 연구 대행서비스 신청 및 관리 페이지
-                입니다.
-              </p>
-              <p className='text-white fs-24'>
-                react-hook-form을 통해 사용자가 제출하는 다양한 폼을
-                검증했습니다. 주로 컴파운드 컴포넌트 패턴을 활용했습니다.
-              </p>
-              <p className='text-white fs-24'>
-                react-quill을 통해 관리자가 게시글을 작성하는 wysiwyg 에디터를
-                구현했습니다.
-              </p>
-              <p className='text-white fs-24'>
-                퍼페티어를 이용해 견적서, 보고서 등의 문서를 PDF로 다운로드 받을
-                수 있도록 구현했습니다.
-              </p>
-              <p className='text-white fs-24'>
-                나이스페이먼츠의 결제 모듈을 도입했습니다.
-              </p>
-            </section>
-            <section>
-              <p className='text-graytext'>Skill</p>
-              <div className={styles.skillItemDiv}>
-                <p className='text-white fs-24'>Next.js @14.2.3</p>
-                <p>
-                  SSR, SEO를 위한 메타태그 설정, 이미지 최적화 등 next.js의
-                  기능을 활용하기 위해 도입했습니다.
-                </p>
-              </div>
-              <div className={styles.skillItemDiv}>
-                <p className='text-white fs-24'>@vanilla-extract/css @1.15.1</p>
-                <p>
-                  제로런타임CSS를 통해 보다 빠른 렌더링과 타입 안정성을 가진
-                  라이브러리를 사용하기 위해 도입했습니다.
-                </p>
-              </div>
-              <div className={styles.skillItemDiv}>
-                <p className='text-white fs-24'>
-                  @tanstack/react-query @5.37.1
-                </p>
-                <p>
-                  서버로부터 받아오는 데이터의 전역 상태, 캐싱, loading 상태
-                  등을 관리하기 위해 도입했습니다.
-                </p>
-              </div>
-              <div className={styles.skillItemDiv}>
-                <p className='text-white fs-24'>zustand @4.5.2</p>
-                <p>
-                  컴포넌트의 상태와 같이 클라이언트 측에서 사용할 전역 상태(ex.
-                  모달 등)을 관리하기 위해 도입했습니다.
-                </p>
-              </div>
-              <div className={styles.skillItemDiv}>
-                <p className='text-white fs-24'>cookie @0.6.0</p>
-                <p>
-                  Next.js 미들웨어에서 쿠키를 통해 사용자의 로그인 검증에
-                  사용했습니다.
-                </p>
-              </div>
-              <div className={styles.skillItemDiv}>
-                <p className='text-white fs-24'>react-hook-form @7.51.4</p>
-                <p>
-                  사용자가 제출하는 form의 검증을 위해 도입했습니다. 컴파운드
-                  컴포넌트 패턴을 주로 이용했습니다.
-                </p>
-              </div>
-              <div className={styles.skillItemDiv}>
-                <p className='text-white fs-24'>react-quill @2.0.0</p>
-                <p>
-                  관리자가 WISIWYG 에디터를 이용해 게시글을 작성할 수 있도록
-                  구현하기위해 도입했습니다.
-                </p>
-              </div>
-              <div className={styles.skillItemDiv}>
-                <p className='text-white fs-24'>swiper @11.1.3</p>
-                <p>네비게이션 바 옆의 광고 배너를 만들기 위해 도입했습니다.</p>
-              </div>
-              <div className={styles.skillItemDiv}>
-                <p className='text-white fs-24'>svgr @8.1.0</p>
-                <p>
-                  svg를 컴포넌트화 하여 fill, stroke등 간단하게 설정을 조절할 수
-                  있어 도입했습니다.
-                </p>
-              </div>
-              <div className={styles.skillItemDiv}>
-                <p className='text-white fs-24'>puppeteer @22.9.0</p>
-                <p>
-                  서버측에서 퍼페티어를 이용해 견적서, 보고서 등의 문서를 PDF로
-                  다운로드 받을 수 있도록 구현하기 위해 도입했습니다.
-                </p>
-              </div>
-              <div className={styles.skillItemDiv}>
-                <p className='text-white fs-24'>react-daum-postcode @3.1.3</p>
-                <p>회원가입시 주소를 입력받기 위해 도입했습니다.</p>
-              </div>
-              <div className={styles.skillItemDiv}>
-                <p className='text-white fs-24'>date-fns @3.6.0</p>
-                <p>간편한 날짜 처리를 위해 도입했습니다.</p>
-              </div>
-            </section>
+            <DetailOverView {...gridaDetailData} />
+            <DetailDescription description={gridaDescription} />
+            <DetailSkill skillList={gridaSkills} />
             <section>
               <p className='text-graytext'>Problem Solving</p>
               <p className='fs-30'>
@@ -190,8 +61,8 @@ const GridaLayout = () => {
                 리액트 훅 폼을 이용하면서 중복되는 항목에 대한 Input이 많다는
                 생각을 했습니다. 검증 로직 또한 비슷한 항목이 다수 존재했습니다.
                 <br />
-                예를 들어 로그인, 회원가입, 정보 수정에서 사용되는 id, 비밀번호, 이름, 이메일, 주소
-                등의 항목이 있습니다.
+                예를 들어 로그인, 회원가입, 정보 수정에서 사용되는 id, 비밀번호,
+                이름, 이메일, 주소 등의 항목이 있습니다.
                 <br />
                 따라서 컴파운드 컴포넌트 패턴을 이용해 중복되는 항목을
                 컴포넌트화 하여 재사용성을 높였습니다.
@@ -567,14 +438,6 @@ export default QuillEditor;`}
                 </Link>
               </p>
             </section>
-            {/* <section>
-              <p className='text-graytext'>Outcome</p>
-              <p>여기는 결과 영역입니다.</p>
-              <p>여기는 결과 영역입니다.</p>
-              <p>여기는 결과 영역입니다.</p>
-              <p>여기는 결과 영역입니다.</p>
-              <p>여기는 결과 영역입니다.</p>
-            </section> */}
           </div>
         </div>
       </div>

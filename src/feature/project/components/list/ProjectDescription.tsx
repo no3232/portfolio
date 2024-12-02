@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import styles from './ProjectDescription.module.scss';
 import Link from 'next/link';
-import { ProjectDescriptionInterface } from '../../layouts/ProjectLayout';
+import { ProjectDescriptionInterface } from '../../layouts/list/ProjectLayout';
 
 interface ProjectDescriptionProps {
   description: ProjectDescriptionInterface;

@@ -1,7 +1,7 @@
 'use client';
 
 import ProjectDetailLayout from '@/feature/project/layouts/ProjectDetailLayout';
-import WoodangLayout from '@/feature/project/temp/Woodang';
+import WoodangLayout from '@/feature/project/layouts/detail/WoodangDetailLayout';
 import { GSAPConfig } from '@/lib/gsap/GSAPConfig';
 
 GSAPConfig.initialize();

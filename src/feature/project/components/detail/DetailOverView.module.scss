@@ -1,0 +1,9 @@
+.overViewSectionGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+}
+
+.projectTitle {
+  grid-column: 1 / 3;
+}

@@ -1,6 +1,6 @@
 'use client';
 
-import GridaLayout from '@/feature/project/temp/GRIDA';
+import GridaLayout from '@/feature/project/layouts/detail/GRIDADetailLayout';
 import { GSAPConfig } from '@/lib/gsap/GSAPConfig';
 
 GSAPConfig.initialize();
