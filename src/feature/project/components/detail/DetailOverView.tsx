@@ -33,7 +33,12 @@ const DetailOverView = ({
       <div>
         <p className='text-graytext'>Link</p>
         {link.map((item, index) => (
-          <Link href={item} className='text-white fs-26' target='_blank'>
+          <Link
+            key={`${index}-${item}-link`}
+            href={item}
+            className='text-white fs-26'
+            target='_blank'
+          >
             <p>{item}</p>
           </Link>
         ))}

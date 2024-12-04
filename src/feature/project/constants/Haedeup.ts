@@ -70,4 +70,186 @@ const haedeupSkills: SkillItem[] = [
   },
 ];
 
-export { haedeupDetailData, haedeupDescription, haedeupSkills };
+const haedeupReportCode1 = `export async function POST(req: Request) {
+  try {
+    // upload.json 파일 읽기
+    const jsonPath = path.join(\`\${process.cwd()}\`, "upload.json");
+    const jsonData = fs.readFileSync(jsonPath, "utf-8");
+    const dataList = JSON.parse(jsonData);
+
+    if (!Array.isArray(dataList)) {
+      console.error("입력 데이터는 배열 형태여야 합니다.");
+      return;
+    }
+
+    if (!Array.isArray(dataList)) {
+      return NextResponse.json(
+        { error: "입력 데이터는 배열 형태여야 합니다." },
+        { status: 400 }
+      );
+    }
+
+    const createdReports = await prisma.$transaction(
+      dataList.map((data) =>
+        prisma.reportJSON.create({
+          data: {
+            name: data.name,
+            ...
+          },
+          include: {
+            worry: true,
+            ...
+          },
+        })
+      )
+    );
+
+    return NextResponse.json(createdReports, { status: 201 });
+  } catch (error) {
+    console.error("리포트 생성 중 오류 발생:", error);
+    return NextResponse.json(
+      { error: "리포트 생성 중 오류가 발생했습니다." },
+      { status: 500 }
+    );
+  }
+}`;
+
+const haedeupReportCode2 = `export default async function ReportPage({ params }: { params: { id: string } }) {
+  const reportData = await prisma.reportJSON.findUnique({
+    where: { id: params.id },
+	  ...
+  });
+
+  if (!reportData) {
+    return <div>No data</div>;
+  }
+
+  const samplePage = reportData.samplePage ? reportData.samplePage.split("|") : [];
+  console.log(reportData.samplePage)
+
+  return (
+    <div className="w-full h-full">
+      <DownloadButton reportList={[reportData]} />
+      <TitlePage reportData={reportData} />
+      ...
+      <LastLayoutPage />
+    </div>
+  );
+}
+`;
+
+const haedeupReportCode3 = `export async function GET(request: NextRequest) {
+  try {
+    const searchParams = request.nextUrl.searchParams;
+    const id = searchParams.get("id");
+    // Puppeteer 인스턴스 실행
+    const browser = await puppeteer.launch({
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+      headless: true,
+    });
+
+    const page = await browser.newPage();
+    await page.setViewport({ width: 595, height: 842 });
+    const targetUrl = \`http://localhost:3000/haedeup/\${id}\`;
+
+    // 페이지 접속
+    await page.goto(targetUrl, {
+      waitUntil: "networkidle0",
+      timeout: 0,
+    });
+
+    // 이미지 로딩 대기
+    await page.evaluate(async () => {
+      const selectors = Array.from(document.querySelectorAll("img"));
+      document.body.scrollIntoView(false);
+      await Promise.all(
+        selectors.map((img) => {
+          if (img.complete) return;
+          return new Promise((resolve, reject) => {
+            img.addEventListener("load", resolve);
+            img.addEventListener("error", reject);
+          });
+        })
+      );
+    });
+
+    // PDF 옵션 설정
+    const options: PDFOptions = {
+      width: 595,
+      height: 842,
+      printBackground: true,
+    };
+
+    // PDF 생성 및 파일로 저장
+    const pdf = await page.pdf(options);
+    await browser.close();
+
+    return new Response(pdf, {
+      headers: {
+        "Content-Type": "application/pdf",
+        "Content-Disposition": 'attachment; filename="document.pdf"',
+      },
+    });
+  } catch (error) {
+    console.error("PDF 생성 중 오류 발생:", error);
+    return NextResponse.json(
+      { error: "PDF 생성 중 오류가 발생했습니다." },
+      { status: 500 }
+    );
+  }
+}`;
+
+const haedeupGQLCode = `// codegen.ts
+import type { CodegenConfig } from '@graphql-codegen/cli';
+
+const config: CodegenConfig = {
+  overwrite: true,
+  // GraphQL 스키마를 불러 올 주소 설정
+  schema: 'http://localhost:3030/graphql',
+  // GraphQL 쿼리문을 불러올 경로 설정
+  documents: 'src/graphql/*.gql',
+  hooks: {
+    afterOneFileWrite: ['prettier --write'],
+  },
+  generates: {
+	  // API 함수 생성 파일 위치 설정
+    'src/graphql/helpers/generated.ts': {
+      documents: 'string',
+      config: {
+	      // 리액트 쿼리 사용 설정
+        reactQueryVersion: 5,
+        ...,
+        // fetch 함수 커스터마이즈
+        fetcher: {
+          func: './fetcher#fetcher',
+        },
+        ...
+      },
+      plugins: [
+        'typescript',
+        '@graphql-codegen/typescript-operations',
+	      // react-query 플러그인 추가
+        '@graphql-codegen/typescript-react-query',
+        {
+          add: {
+	          // generate.ts 파일 최상단 커스텀 에러 import 설정
+            content: "import { ApiErrorInstance } from './apiError';",
+          },
+        },
+      ],
+    },
+  },
+};
+
+export default config;
+`;
+
+export {
+  haedeupDetailData,
+  haedeupDescription,
+  haedeupSkills,
+  haedeupReportCode1,
+  haedeupReportCode2,
+  haedeupReportCode3,
+  haedeupGQLCode
+};
