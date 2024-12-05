@@ -21,3 +21,21 @@
     object-position: center;
   }
 }
+
+.scrollDownWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  position: absolute;
+  bottom: 5vh;
+  left: 50%;
+  transform: translate(-50%, 0);
+
+  img {
+    width: auto;
+    height: 10rem;
+  }
+}

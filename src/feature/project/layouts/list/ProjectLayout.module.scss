@@ -14,17 +14,16 @@
 .skillTitle {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
 
-  padding-left: $grid-padding;
-
-  margin-bottom: 3rem;
+  grid-column: 1/3;
+  grid-row: 1/1;
 }
 
 .imageListGrid {
   display: grid;
   grid-column: 5/11;
-  grid-row: 1/2;
+  grid-row: 1/3;
   height: 100%;
   overflow: hidden;
 }
@@ -43,9 +42,12 @@
   width: 100%;
   height: 100%;
   clip-path: polygon(
-    var(--clipIn) var(--clipIn), // 좌상단 점 x y
-    var(--clipOut) var(--clipIn), // 우상단 점 x y
-    var(--clipOut) var(--clipOut), // 우하단 점 x y
+    var(--clipIn) var(--clipIn),
+    // 좌상단 점 x y
+    var(--clipOut) var(--clipIn),
+    // 우상단 점 x y
+    var(--clipOut) var(--clipOut),
+    // 우하단 점 x y
     var(--clipIn) var(--clipOut) // 좌하단 점 x y
   );
 
@@ -78,5 +80,8 @@
   max-height: 100%;
 
   position: absolute;
-  transform: translate(calc(var(--imgTrans) / (2 * var(--imgDirection))),calc(var(--imgTrans) / (2 * var(--imgDirection))));
+  transform: translate(
+    calc(var(--imgTrans) / (2 * var(--imgDirection))),
+    calc(var(--imgTrans) / (2 * var(--imgDirection)))
+  );
 }

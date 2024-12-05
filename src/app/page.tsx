@@ -11,7 +11,6 @@ export default function Home() {
   return (
     <div>
       <main id='main-contents' style={{ zIndex: 100 }}>
-        <NavBar />
         <AboutLayout />
         <SkillLayout />
         <ProjectLayout />
