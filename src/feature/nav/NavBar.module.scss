@@ -13,10 +13,24 @@
   height: 10rem;
   backdrop-filter: blur(4px);
 
-  z-index: 100;
+  z-index: 1000;
 
   font-size: 1.6rem;
   padding: 0 1.6rem;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.6rem;
+  width: 10rem;
+  height: 10rem;
+
+  img {
+    width: 5rem;
+    height: 100%;
+  }
 }
 
 .navLink {

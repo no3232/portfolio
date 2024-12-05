@@ -7,7 +7,7 @@ import { useGSAP } from '@gsap/react';
 import { useLenis } from 'lenis/react';
 
 import styles from './DetailImage.module.scss';
-
+import clsx from 'clsx';
 
 const DetailImage = ({ image }: { image: string }) => {
   const lenis = useLenis();
@@ -23,6 +23,14 @@ const DetailImage = ({ image }: { image: string }) => {
         refreshPriority: 2,
       },
     });
+
+    gsap.to('.scrollDownWrapper', {
+      y: 20,
+      duration: 1.5,
+      ease: 'power2.inOut',
+      repeat: -1,
+      yoyo: true,
+    });
   });
 
   return (
@@ -37,7 +45,11 @@ const DetailImage = ({ image }: { image: string }) => {
       style={{ cursor: 'pointer' }}
     >
       <div className={styles.imgWrapper}>
-          <img src={image} alt='' />
+        <img src={image} alt='' />
+      </div>
+      <div className={clsx(styles.scrollDownWrapper, 'scrollDownWrapper')}>
+        <img src={'icon/scrollDown.svg'} alt='' />
+        <p className={'fs-20 text-semibold'}>Scroll Down Or Click</p>
       </div>
     </div>
   );

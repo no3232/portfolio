@@ -2,7 +2,7 @@ import { DetailOverViewProps } from '../components/detail/DetailOverView';
 import { SkillItem } from '../components/detail/DetailSkill';
 
 const woodangDetailData: DetailOverViewProps = {
-  project: '우당네트웍 메인페이지',
+  project: '우당네트웍 홈페이지',
   period: '2024.01 ~ 2024.02',
   role: 'Front-End(100%)',
   link: ['https://woodangnetwork.com'],

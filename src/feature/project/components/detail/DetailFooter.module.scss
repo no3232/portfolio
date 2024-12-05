@@ -6,6 +6,17 @@
   background-color: $color-primary;
 }
 
+.linkWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  img {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
 .detailFooterContainer {
   width: 100%;
   display: flex;
