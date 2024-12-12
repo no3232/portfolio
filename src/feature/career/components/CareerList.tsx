@@ -48,7 +48,7 @@ const CareerList = () => {
         <div className={`${styles.panel} panel`}>
           <h2 className='h3 text-bold'>(주)우당네트웍</h2>
           <div>
-            <p className={'fs-32'}>2023.07 ~ 2024.06</p>
+            <p className={'fs-32'}>2023.07 ~ 2024.11</p>
           </div>
           <div>
             <p className={'fs-36'}>프론트엔드 개발자</p>
