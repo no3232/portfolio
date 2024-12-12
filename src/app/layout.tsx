@@ -5,6 +5,7 @@ import { ReactLenis } from 'lenis/react';
 import { suit } from '@/styles/font/font';
 import { GSAPConfig } from '@/lib/gsap/GSAPConfig';
 import NavBar from '@/feature/nav/NavBar';
+import TempResponsiveBlock from '@/components/TempResponsiveBlock';
 
 export const metadata: Metadata = {
   title: '배상준 | Frontend Developer',
@@ -25,6 +26,7 @@ export default function RootLayout({
     <html lang='en'>
       <ReactLenis root>
         <body className={suit.variable}>
+          <TempResponsiveBlock />
           <NavBar />
           {children}
         </body>
